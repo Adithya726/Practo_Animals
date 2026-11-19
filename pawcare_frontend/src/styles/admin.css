@@ -1,0 +1,48 @@
+/* ================================================================
+   Admin
+   ================================================================ */
+.auth-page { min-height: 100vh; display: grid; place-items: center; padding: 20px; background:
+  radial-gradient(600px 300px at 80% 10%, rgba(249, 115, 22, 0.12), transparent 60%),
+  radial-gradient(600px 300px at 10% 90%, rgba(15, 118, 110, 0.14), transparent 60%), var(--bg); }
+.auth-card { width: min(420px, 100%); background: #fff; border: 1px solid var(--border); border-radius: 24px; padding: 30px; display: grid; gap: 14px; box-shadow: var(--shadow); }
+.auth-card h1 { font-size: 1.4rem; display: flex; align-items: center; gap: 8px; margin-top: 8px; }
+
+.admin { min-height: 100vh; }
+.admin-head { background: #fff; border-bottom: 1px solid var(--border); }
+.admin-head-inner { display: flex; align-items: center; gap: 18px; height: 64px; }
+.admin-head-actions { margin-left: auto; display: flex; gap: 8px; }
+.admin-main { padding: 28px 0 60px; }
+.admin-title { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; }
+.admin-title h1 { font-size: 1.7rem; font-weight: 800; }
+.stat-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; margin-bottom: 22px; }
+.stat { background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 16px; display: grid; gap: 2px; }
+.stat svg { color: var(--primary); margin-bottom: 6px; }
+.stat strong { font-family: var(--display); font-size: 1.6rem; font-weight: 800; }
+.stat span { font-size: 0.8rem; color: var(--muted); }
+.admin-tabs { display: flex; gap: 6px; margin-bottom: 12px; overflow-x: auto; }
+.admin-tabs button { display: inline-flex; align-items: center; gap: 7px; padding: 9px 14px; border-radius: 12px; border: 1px solid var(--border); background: #fff; font-weight: 650; cursor: pointer; white-space: nowrap; }
+.admin-tabs button span { font-size: 0.74rem; background: var(--surface-2); padding: 1px 7px; border-radius: 999px; }
+.admin-tabs button.active { background: #1c1917; color: #fff; border-color: #1c1917; }
+.admin-tabs button.active span { background: rgba(255, 255, 255, 0.18); }
+.table-panel { padding: 0; overflow-x: auto; }
+.data-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; min-width: 820px; }
+.data-table th { text-align: left; font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); padding: 14px 16px; border-bottom: 1px solid var(--border); background: var(--surface-2); }
+.data-table td { padding: 14px 16px; border-bottom: 1px solid var(--border); vertical-align: top; }
+.data-table tr:last-child td { border-bottom: 0; }
+.data-table small { display: block; color: var(--muted); font-size: 0.8rem; margin-top: 2px; }
+.data-table small.quote { font-style: italic; }
+.data-table select { width: auto; padding: 6px 10px; font-size: 0.85rem; text-transform: capitalize; }
+.row-actions { white-space: nowrap; }
+.row-actions .ui-btn + .ui-btn { margin-left: 6px; }
+.status-pill { display: inline-block; padding: 3px 9px; border-radius: 999px; font-size: 0.75rem; font-weight: 700; text-transform: capitalize; }
+.s-pending { background: #fef3c7; color: #92400e; }
+.s-approved { background: var(--success-soft); color: #166534; }
+.s-rejected { background: var(--danger-soft); color: #991b1b; }
+.field-tag { display: inline-block; padding: 2px 8px; border-radius: 6px; background: var(--surface-2); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.04em; }
+.field-tag.strong { background: #f3f0ff; color: var(--violet); }
+
+@media (max-width: 1024px) { .stat-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 640px) {
+  .stat-grid { grid-template-columns: repeat(2, 1fr); }
+  .admin-head-inner > .muted { display: none; }
+}
