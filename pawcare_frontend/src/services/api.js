@@ -1,7 +1,10 @@
 import axios from 'axios';
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:7681';
+const IS_LOCAL_API = /localhost|127\.0\.0\.1/.test(API_BASE_URL);
+
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:7681',
+  baseURL: API_BASE_URL,
   headers: {
     'Content-Type': 'application/json',
   },
@@ -53,7 +56,9 @@ api.interceptors.response.use(
 
 export function getErrorMessage(error, fallback = 'Something went wrong. Please try again.') {
   if (!error.response) {
-    return 'Cannot reach the server. Check that the backend is running on port 7681.';
+    return IS_LOCAL_API
+      ? 'Cannot reach the server. Check that the backend is running on port 7681.'
+      : 'The demo server is waking up (it sleeps when idle). Give it a minute and try again.';
   }
 
   const data = error.response.data;

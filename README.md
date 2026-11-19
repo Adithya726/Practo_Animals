@@ -36,7 +36,7 @@ City, pet type (dogs, cats, birds, rabbits, exotic, livestock), open 24x7, handl
 | Explore Services | Nav, category grid | Browse all six categories |
 | Emergency | Nav, red strip, mobile bottom bar | 24x7 + emergency providers |
 | Call / Directions | Every card and provider page | `tel:` link, Google Maps |
-| List Your Business | Nav, home, search results, footer | Form, then admin review; approving publishes the provider as verified |
+| List Your Business | "For Business" in the nav, home, search results, footer | Form, then admin review; approving publishes the provider as verified |
 | Submit a Correction | Every card and provider page | Modal (phone, address, hours, fee, services, closed), reviewed in admin |
 
 **Attractive, intuitive, mobile-first**
@@ -82,8 +82,6 @@ Raw idea, then research & structure, headlines & copy, visual direction, edit, e
 
 ## Tech stack and architecture
 
-Same layered structure as my earlier QueueFlow project.
-
 ```
 PawCare_backend/   Spring Boot 4, Java 21, Spring Data JPA, Spring Security + JWT, MySQL
   controller/      REST endpoints, no business logic
@@ -106,6 +104,8 @@ pawcare_frontend/  React 19 + Vite, React Router, Axios, lucide icons
 ### Run it
 
 Prerequisites: Java 21, Node 20+, MySQL 8 running locally.
+
+**Hosted demo:** `render.yaml` deploys the API (Docker, `demo` profile on an in-memory database, sample data re-seeded on every start) and the frontend as a static site on Render's free tier. The free API sleeps when idle, so the first request can take about a minute.
 
 **Backend (port 7681)**
 ```bash
@@ -154,7 +154,7 @@ Errors are JSON: `{"error": "..."}`, or `{"field": "message"}` for validation, w
 ```bash
 cd PawCare_backend && ./mvnw test
 ```
-30 tests on an in-memory H2 database (no MySQL needed): search filters, wildcard escaping, sorting and paging limits; approving a listing publishes it once; corrections; duplicate registrations; **10 concurrent registrations for 3 seats book exactly 3**; carousel generate, edit and reload; admin login; the template writer; JWT.
+31 tests on an in-memory H2 database (no MySQL needed): search filters, wildcard escaping, sorting and paging limits; approving a listing publishes it once; corrections; duplicate registrations; **10 concurrent registrations for 3 seats book exactly 3**; carousel generate, edit and reload; admin login; the template writer; JWT.
 
 ### Notes
 
